@@ -4,13 +4,16 @@ on:
   issues:
     types:
       - opened
+  pull_request:
+    types:
+      - opened
 
 jobs:
   add-to-project:
     name: Add issue to project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@main
+      - uses: actions/add-to-project@v0.0.3
         with:
           project-url: https://github.com/orgs/test-oops/projects/1
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
